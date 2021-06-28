@@ -1,0 +1,21 @@
+/*
+ * Citizen - Inputs
+ * https://starcitizen.tools
+*/
+
+@import '../../../resources/variables.less';
+
+.mw-ui-input {
+	border: 1px solid var( --border-color-input );
+	background-color: var( --background-color-input );
+	color: var( --color-base );
+
+	&:hover {
+		border-color: var( --border-color-input--hover );
+	}
+
+	&:disabled {
+		border-color: var( --background-color-framed--active );
+		color: var( --color-base--subtle );
+	}
+}

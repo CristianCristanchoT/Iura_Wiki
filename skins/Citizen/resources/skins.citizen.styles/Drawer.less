@@ -1,0 +1,255 @@
+#mw-drawer {
+	position: fixed;
+	z-index: 4;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var( --background-color-overlay );
+	transform: translate3d( 0, -100%, 0 );
+	transform-origin: 0 0;
+	user-select: none;
+
+	&-checkbox {
+		&:checked {
+			// Transform all the slices of the button into a crossmark
+			~ #mw-drawer-button-icon {
+				#mw-drawer-button-icon {
+					&-1 {
+						opacity: 0;
+						/* @noflip */
+						transform: rotate( 0deg ) scale( 0.2, 0.2 );
+					}
+					// Reflect line
+					&-2 {
+						/* @noflip */
+						transform: rotate( -45deg ) translate3d( -2px, 6px, 0 );
+					}
+
+					// Hide line
+					&-3 {
+						/* @noflip */
+						transform: rotate( 45deg ) translate3d( -5px, -7px, 0 );
+					}
+				}
+			}
+
+			// Show drawer
+			~ #mw-drawer {
+				transform: none;
+			}
+		}
+	}
+
+	&-button {
+		position: absolute;
+		z-index: 8;
+		margin-right: var( --margin-header-item--corner );
+		// Need to align with page padding
+		margin-left: var( --margin-header-item--corner );
+
+		&-icon {
+			display: flex;
+			overflow: hidden;
+			width: var( --size-icon );
+			height: var( --size-icon );
+			flex-direction: column;
+			flex-shrink: 0;
+			align-items: center;
+			justify-content: center;
+			// Don't use padding as margin is needed to hide overflow
+			margin: ~'calc( var( --padding-header-icon ) + var( --margin-header-item ) )' var( --padding-page );
+
+			&-1 {
+				transform-origin: 0 0;
+			}
+
+			&-2 {
+				transform-origin: 0 100%;
+			}
+		}
+
+		&:hover {
+			~ #mw-drawer-button-icon {
+				#mw-drawer-button-icon {
+					&-1 {
+						transform: translate3d( -50%, 0, 0 );
+					}
+				}
+
+				.mw-drawer-button-icon {
+					&-div {
+						background-color: var( --background-color-icon--hover );
+					}
+				}
+			}
+		}
+
+		&:active {
+			~ #mw-drawer-button-icon {
+				.mw-drawer-button-icon {
+					&-div {
+						background-color: var( --background-color-icon--active );
+					}
+				}
+			}
+		}
+	}
+
+	&-header {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		padding: var( --height-header ) var( --padding-page ) 20px var( --padding-page );
+		border-bottom: 1px solid var( --border-color-base );
+	}
+
+	&-logo {
+		.mw-logo-icon {
+			width: auto;
+			height: 80px;
+		}
+
+		img.mw-logo-wordmark {
+			width: auto;
+			height: 16px;
+		}
+	}
+
+	&-search {
+		margin-top: 10px;
+
+		&-input {
+			width: 200px;
+			padding: 8px;
+			background: var( --background-color-dp-03 );
+			border-radius: var( --border-radius--small );
+			text-align: center;
+			transition: @transition-background-quick;
+			.boxshadow(1);
+
+			&:focus {
+				background: var( --background-color-dp-08 );
+				outline: 0;
+				.boxshadow(3);
+			}
+		}
+	}
+
+	&-menu {
+		display: flex;
+		overflow: auto;
+		max-width: var( --width-layout );
+		flex-wrap: wrap;
+		justify-content: center;
+		font-size: @ui-menu-text;
+		overscroll-behavior: contain;
+
+		h3 {
+			font-size: 16px;
+		}
+
+		a {
+			.menu-item-link;
+			align-items: center;
+			justify-content: space-between;
+			padding: @padding-menu-item-big;
+			border-radius: var( --border-radius--small );
+
+			&:after {
+				.resource-loader-list-icon;
+				display: block;
+				margin-left: @icon-padding;
+				background-size: contain;
+				opacity: var( --opacity-icon-base );
+				transition: @transition-opacity-quick;
+			}
+
+			&:hover {
+				.menu-item-link-hover;
+
+				&:after {
+					opacity: var( --opacity-icon-base--hover );
+				}
+			}
+
+			&:active {
+				.menu-item-link-active;
+
+				&:after {
+					opacity: var( --opacity-icon-base--active );
+				}
+			}
+		}
+
+		.mw-portal {
+			width: 240px;
+			margin-top: 20px;
+		}
+	}
+}
+
+.mw-drawer {
+	&-button {
+		&-icon {
+			&-div {
+				z-index: 5;
+				display: block;
+				width: @icon-size;
+				height: 2px;
+				margin: 1.5px 0;
+				background-color: var( --background-color-icon );
+				border-radius: var( --border-radius--large );
+				transform-origin: 4px 0;
+				transition: @transition-transform-quick, @transition-background-quick, @transition-opacity-quick;
+			}
+		}
+	}
+}
+
+.client-nojs {
+	#mw-drawer-search {
+		// Hide search when client has no JS
+		// Since the function does not work without script
+		display: none;
+	}
+}
+
+.citizen-animations-ready {
+	#mw-drawer {
+		transition: @transition-transform-quick;
+	}
+}
+
+.skin-citizen-dark {
+	#mw-drawer-menu a:after {
+		filter: invert( 1 );
+	}
+}
+
+// RTL
+.rtl {
+	#mw-drawer-button:hover {
+		~ #mw-drawer-button-icon {
+			#mw-drawer-button-icon-1 {
+				transform: translate3d( 50%, 0, 0 );
+			}
+		}
+	}
+}
+// Portal width (240px) * 2 + Magic (4px)
+@media ( min-width: 484px ) {
+	#mw-drawer-menu {
+		justify-content: left; // Portals won't get center when there is more than one col
+	}
+}
+
+@media ( min-width: @width-breakpoint-desktop-wide ) {
+	#mw-drawer-menu {
+		max-width: 1200px; // 240px * 5
+	}
+}
