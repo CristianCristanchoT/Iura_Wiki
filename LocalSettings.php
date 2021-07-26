@@ -57,8 +57,8 @@ $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "localhost";
-$wgDBname = "iura_wiki_database";
-$wgDBuser = "iura_db_master";
+$wgDBname = "iurawiki_database";
+$wgDBuser = "iurawiki_db_master";
 $wgDBpassword = "iura_project_2021";
 
 # MySQL specific settings
