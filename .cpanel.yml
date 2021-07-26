@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/iurawiki/public_html/
+    - /bin/rsync -av / $DEPLOYPATH
+ 
