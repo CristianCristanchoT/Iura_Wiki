@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/iurawiki/public_html/
-    - /bin/cp -R Iura_Wiki $DEPLOYPATH
+    - /bin/cp -R /home/iurawiki/repositories/Iura_Wiki $DEPLOYPATH
  
