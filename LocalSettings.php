@@ -27,10 +27,10 @@ $wgMetaNamespace = "Iura_Wiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = "/Iura_wiki";
+$wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost";
+$wgServer = "http://iurawiki.com";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -105,14 +105,14 @@ $wgShellLocale = "C.UTF-8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "es";
 
-$wgSecretKey = "5d47a56f3f26822a86937a2f98373161bbcdaa821b65220f944723ea2295f453";
+$wgSecretKey = "e96649bf5f12a02579af11d2438131d227a1ce2029c1c8b2c65a09d0f7e6c2f6";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "27875ddadce63d32";
+$wgUpgradeKey = "88ce958dbc9dcf34";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
