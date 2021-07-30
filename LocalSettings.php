@@ -47,8 +47,8 @@ $wgFavicon = "$wgResourceBasePath/resources/assets/IURA_WIKI.png";
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "apache@🌻.invalid";
-$wgPasswordSender = "apache@🌻.invalid";
+$wgEmergencyContact = "apache@馃尰.invalid";
+$wgPasswordSender = "apache@馃尰.invalid";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -119,7 +119,7 @@ $wgUpgradeKey = "88ce958dbc9dcf34";
 ## License and Creative Commons licenses are supported so far.
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
 $wgRightsUrl = "https://creativecommons.org/licenses/by-nc-sa/4.0/";
-$wgRightsText = "Creative Commons Atribución-NoComercial-CompartirIgual";
+$wgRightsText = "Creative Commons Atribuci贸n-NoComercial-CompartirIgual";
 $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-nc-sa.png";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
@@ -127,7 +127,7 @@ $wgDiff3 = "/usr/bin/diff3";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "vector";
+$wgDefaultSkin = "Citizen";
 
 # Enabled skins.
 # The following skins were automatically enabled:
@@ -193,6 +193,7 @@ $wgRateLimits['linkpurge']['anon'] = [10000,10];
 
 
 #Deshabilitar para carga masiva de documentos por API o Bot
+
 $wgRateLimits = [
 	// Page edits
 	'edit' => [
